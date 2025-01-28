@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Grade Average</title>
+</head>
+<body>
+    <script>
+        // Step 1: Ask the user for the number of courses
+        let numOfCourses = parseInt(prompt("How many courses did you finish?", "0"));
+
+        // Step 2: Validate the input
+        if (isNaN(numOfCourses) || numOfCourses <= 0) {
+            document.write("<p>Invalid input! Please refresh and enter a valid number of courses.</p>");
+        } else {
+            // Step 3: Collect course marks
+            let courseMarks = [];
+            let validInput = true;
+
+            for (let i = 1; i <= numOfCourses; i++) {
+                let mark = parseFloat(prompt(`Enter your mark for course ${i} (0-100):`));
+
+                if (!isNaN(mark) && mark >= 0 && mark <= 100) {
+                    courseMarks.push(mark);
+                } else {
+                    document.write(`<p>Invalid mark entered for course ${i}. Please refresh and try again.</p>`);
+                    validInput = false;
+                    break;
+                }
+            }
+
+            // Step 4: Process marks if all inputs are valid
+            if (validInput) {
+                let total = courseMarks.reduce((sum, mark) => sum + mark, 0);
+                let average = (total / courseMarks.length).toFixed(2);
+
+                // Step 5: Determine the grade
+                let grade;
+                if (average >= 90) {
+                    grade = "A+";
+                } else if (average >= 80) {
+                    grade = "B";
+                } else if (average >= 70) {
+                    grade = "C";
+                } else if (average >= 60) {
+                    grade = "D";
+                } else {
+                    grade = "F";
+                }
+
+                // Step 6: Display the result
+                document.write(`
+                    <p>Number of courses: ${numOfCourses}</p>
+                    <p>Course marks: ${courseMarks.join(", ")}</p>
+                    <p>Your final average is: <strong>${average}</strong></p>
+                    <p>Your grade is: <strong>${grade}</strong></p>
+                `);
+            }
+        }
+    </script>
+</body>
+</html>
