@@ -14,7 +14,7 @@ The application allows users to:
 
 ## Live Demo
 
-You can view the live demo of the project here: (https://vanshaggarwal5.github.io/JS-ASSIGNMENT01-VANSH-AGGARWAL/)
+You can view the live demo of the project here: (https://amritpal55.github.io/JS-ASSIGNMENT01-AMRITPAL/)
 
 ## Instructions to Run Locally
 1. Clone the repository to your local machine.
